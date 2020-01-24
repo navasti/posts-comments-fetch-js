@@ -1,0 +1,167 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+    font-family: arial, sans-serif;
+}
+
+.wrapper{
+    .results{
+        display: none;
+        text-align: center;
+        padding-top: 1rem;
+        font-size: 1.8rem;
+        &.active{display: block;}
+    }
+    // header
+    header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 1rem;
+        position: sticky;
+        z-index: 99;
+        top: 0;
+        background-color: #fff;
+        font-size: 1.6rem;
+        input{
+            padding: .8rem .5rem;
+            width: 55%;
+            box-shadow: .5rem .5rem 0 0 #CFCFCF;
+            border: none;
+            background-color: #e4e4e4;
+        }
+        span{
+            text-align: right;
+            font-size: 1rem;
+        }
+    }
+    // main
+    main{
+        padding: 0 1.5rem;
+        display: flex;
+        flex-direction: column;
+        letter-spacing: 1px;
+        .post{
+            text-align: center;
+            padding: 1rem;
+            width: 95%;
+            background-color: #e4e4e4;
+            box-shadow: .8rem .8rem 0 0 #CFCFCF;
+            margin: 1rem 0;
+            &:nth-child(even){
+                box-shadow: -.8rem .8rem 0 0 #CFCFCF;
+                align-self: flex-end;
+            }
+            &.display-none{display: none;}
+            &.filtered{display:block; align-self: center;}
+            h2{
+                font-weight: normal;
+                font-size: 2rem;
+                padding: 1.5rem 0;
+            }
+            p{
+                font-size: 1.3rem;
+                text-align: justify;
+            }
+            .show-comments{
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                font-size: 1.2rem;
+                span{padding-top: 1.5rem;}
+                i{
+                    padding: .5rem 0;
+                    transition: .4s ease;
+                    &.active{
+                        transform: rotate(180deg);
+                        transform-origin: center;
+                    }
+                }
+            }
+        }
+        .comment.hidden{display: none;}
+        .comment{
+            text-align: left;
+            border-top: 1px solid #ccc;
+            padding: 1rem 0;
+            .details{
+                display: flex;
+                align-items: center;
+                i{font-size: 2.4rem;}
+                .user{
+                    padding: 0 1rem;
+                    span{font-size: 1.2rem;}
+                    p{font-size: 1.4rem;}
+                }
+            }
+            .comment-text{
+                font-size: 1.7rem;
+                padding: 1rem 0 .5rem 0;
+            }
+        }
+        
+    }
+}
+
+@media (min-width: 765px){
+    .wrapper{
+        header{
+            input{
+                padding: 1.5rem 1rem;
+                width: 50%;
+                font-size: 1.6rem;
+            }
+            span{font-size: 1.4rem;}
+        }
+        main{
+            .post{
+                width: 80%;
+                margin: 2rem 0;
+                h2{font-size: 2.4rem;}
+                p{font-size: 1.6rem;}
+                .show-comments{font-size: 1.5rem;}
+            }
+            .comment{
+                .details{
+                    i{font-size: 2.8rem;}
+                    .user{
+                        span{font-size: 1.3rem;}
+                        p{font-size: 1.5rem;}
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1357px){
+    .wrapper{
+        header{
+            padding: 1.5rem 10.6%;
+            input{width: 45%;}
+        }
+        main{
+            width: 80%;
+            margin: 0 auto;
+            .post{
+                width: 60%;
+                margin: 2rem 0;
+                h2{font-size: 2.4rem;}
+                p{font-size: 1.6rem;}
+                .show-comments{font-size: 1.5rem;}
+            }
+            .comment{
+                .details{
+                    i{font-size: 2.8rem;}
+                    .user{
+                        span{font-size: 1.3rem;}
+                    }
+                }
+            }
+        }
+    }
+}

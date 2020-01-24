@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  font-family: arial, sans-serif;
+}
+
+.wrapper .results {
+  display: none;
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.wrapper .results.active {
+  display: block;
+}
+
+.wrapper header {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem 1rem;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 99;
+  top: 0;
+  background-color: #fff;
+  font-size: 1.6rem;
+}
+
+.wrapper header input {
+  padding: .8rem .5rem;
+  width: 55%;
+  -webkit-box-shadow: .5rem .5rem 0 0 #CFCFCF;
+          box-shadow: .5rem .5rem 0 0 #CFCFCF;
+  border: none;
+  background-color: #e4e4e4;
+}
+
+.wrapper header span {
+  text-align: right;
+  font-size: 1rem;
+}
+
+.wrapper main {
+  padding: 0 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  letter-spacing: 1px;
+}
+
+.wrapper main .post {
+  text-align: center;
+  padding: 1rem;
+  width: 95%;
+  background-color: #e4e4e4;
+  -webkit-box-shadow: .8rem .8rem 0 0 #CFCFCF;
+          box-shadow: .8rem .8rem 0 0 #CFCFCF;
+  margin: 1rem 0;
+}
+
+.wrapper main .post:nth-child(even) {
+  -webkit-box-shadow: -.8rem .8rem 0 0 #CFCFCF;
+          box-shadow: -.8rem .8rem 0 0 #CFCFCF;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.wrapper main .post.display-none {
+  display: none;
+}
+
+.wrapper main .post.filtered {
+  display: block;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.wrapper main .post h2 {
+  font-weight: normal;
+  font-size: 2rem;
+  padding: 1.5rem 0;
+}
+
+.wrapper main .post p {
+  font-size: 1.3rem;
+  text-align: justify;
+}
+
+.wrapper main .post .show-comments {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.wrapper main .post .show-comments span {
+  padding-top: 1.5rem;
+}
+
+.wrapper main .post .show-comments i {
+  padding: .5rem 0;
+  -webkit-transition: .4s ease;
+  transition: .4s ease;
+}
+
+.wrapper main .post .show-comments i.active {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.wrapper main .comment.hidden {
+  display: none;
+}
+
+.wrapper main .comment {
+  text-align: left;
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
+}
+
+.wrapper main .comment .details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.wrapper main .comment .details i {
+  font-size: 2.4rem;
+}
+
+.wrapper main .comment .details .user {
+  padding: 0 1rem;
+}
+
+.wrapper main .comment .details .user span {
+  font-size: 1.2rem;
+}
+
+.wrapper main .comment .details .user p {
+  font-size: 1.4rem;
+}
+
+.wrapper main .comment .comment-text {
+  font-size: 1.7rem;
+  padding: 1rem 0 .5rem 0;
+}
+
+@media (min-width: 765px) {
+  .wrapper header input {
+    padding: 1.5rem 1rem;
+    width: 50%;
+    font-size: 1.6rem;
+  }
+  .wrapper header span {
+    font-size: 1.4rem;
+  }
+  .wrapper main .post {
+    width: 80%;
+    margin: 2rem 0;
+  }
+  .wrapper main .post h2 {
+    font-size: 2.4rem;
+  }
+  .wrapper main .post p {
+    font-size: 1.6rem;
+  }
+  .wrapper main .post .show-comments {
+    font-size: 1.5rem;
+  }
+  .wrapper main .comment .details i {
+    font-size: 2.8rem;
+  }
+  .wrapper main .comment .details .user span {
+    font-size: 1.3rem;
+  }
+  .wrapper main .comment .details .user p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1357px) {
+  .wrapper header {
+    padding: 1.5rem 10.6%;
+  }
+  .wrapper header input {
+    width: 45%;
+  }
+  .wrapper main {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .wrapper main .post {
+    width: 60%;
+    margin: 2rem 0;
+  }
+  .wrapper main .post h2 {
+    font-size: 2.4rem;
+  }
+  .wrapper main .post p {
+    font-size: 1.6rem;
+  }
+  .wrapper main .post .show-comments {
+    font-size: 1.5rem;
+  }
+  .wrapper main .comment .details i {
+    font-size: 2.8rem;
+  }
+  .wrapper main .comment .details .user span {
+    font-size: 1.3rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */
