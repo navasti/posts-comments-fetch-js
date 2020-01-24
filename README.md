@@ -1,0 +1,1 @@
+## Posts widget written in Vanilla JavaScript
