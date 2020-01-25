@@ -1,6 +1,6 @@
     const postsURL = `https://jsonplaceholder.typicode.com/posts`;
     const commentsURL = `https://jsonplaceholder.typicode.com/comments`;
-    const main = document.querySelector('main')
+    const main = document.querySelector('main');
     const input = document.querySelector('input');
     const infoSpan = document.querySelector('header span');
 
@@ -8,19 +8,19 @@
     const filterByTitle = e => {
         const h2 = [...document.querySelectorAll('.post h2')];
         const posts = [...document.querySelectorAll('.post')];
-        const value = e.target.value;
         const results = document.querySelector('.results');
-        let filtered = h2.filter(h2 => h2.textContent.toLowerCase().includes(value.toLowerCase()))
+        const value = e.target.value;
+        let filtered = h2.filter(h2 => h2.textContent.toLowerCase().includes(value.toLowerCase()));
         posts.forEach(post => post.classList.remove("display-none", "filtered"));
-        results.classList.remove('active')
+        results.classList.remove('active');
         if(value){
-            posts.forEach(post => post.classList.add("display-none"))
-            filtered.forEach(h2 => h2.parentNode.classList.add("filtered"))
-            results.classList.add('active')
-            results.textContent = `Posts found: ${filtered.length}`
+            posts.forEach(post => post.classList.add("display-none"));
+            filtered.forEach(h2 => h2.parentNode.classList.add("filtered"));
+            results.classList.add('active');
+            results.textContent = `Posts found: ${filtered.length}`;
         }
-    }
-    input.addEventListener('input', filterByTitle)
+    };
+    input.addEventListener('input', filterByTitle);
 
     // expand comments div
     const expandComments = e => {
@@ -29,13 +29,19 @@
         const arrow = post.querySelector('.fa-chevron-down');
         comment.forEach(com => com.classList.toggle('hidden'));
         arrow.classList.toggle('active');
-    }
+    };
 
     // fetching posts
     fetch(postsURL)
-    .then(response => response.json())
+    .then(response => {
+        if(!response.ok){
+            main.textContent = `Couldn't fetch posts`;
+            throw `Couldn't fetch posts`;
+        }
+        return(response.json());
+    })
     .then(data => {
-        const posts = data.slice(0,20)
+        const posts = data.slice(0,20);
         main.textContent = "";
         for(let i=0; i<posts.length; i++){
             const singlePost = document.createElement('article');
@@ -50,20 +56,26 @@
             <div class="show-comments">
                 <span>Show comments</span>
                 <i class="fas fa-chevron-down"></i>
-            </div>`
+            </div>`;
             main.appendChild(singlePost); 
         }
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log(error));
 
     // fetching comments
     const fetchComments = () => {
         fetch(commentsURL)
-        .then(response => response.json())
+        .then(response => {
+            if(!response.ok) {
+                main.textContent = `Couldn't fetch comments`;
+                throw `Couldn't fetch comments`;
+            }
+            return(response.json())
+        })
         .then(data => {
             const posts = [...document.querySelectorAll('.post')];
             const comments = data.slice(0, 80);
-            const showCommentsBtns = [...document.querySelectorAll('.show-comments')]
+            const showCommentsBtns = [...document.querySelectorAll('.show-comments')];
             for(let i=0; i<comments.length; i++){
                 const singleComment = document.createElement('div');
                 singleComment.className = "comment hidden";
@@ -89,7 +101,7 @@
             showCommentsBtns.forEach(btn => btn.addEventListener('click', expandComments));
             infoSpan.innerHTML = `Posts: ${posts.length}</br> Comments: ${comments.length}`;
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error));
     }
     setTimeout(fetchComments, 500);
     
