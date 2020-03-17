@@ -1,8 +1,16 @@
-## Posts widget written in Vanilla JavaScript
+## Posts Widget
+This project is a simple, mobile first widget which allows you to read posts, comments and filter them by headline.
 
-### This project is a simple, mobile first widget which allows you to read posts, comments and filter them by headline.
+## Preview
+https://navasti.github.io/posts-comments-fetch-js/
 
-#### Data used in this project was fetched from the web api.
+## Getting Started
+All you need to run this project locally is double click index.html file or open the project folder in your text editor and use 'Open with Live Server' option.
 
-There is a same-looking project created by myself but written in React and uses useState and useEffect hooks.
-If you want to check it out here is the link https://github.com/navasti/posts-widget-react
+## Used Technologies
+* HTML
+* Web API
+* JavaScript
+* SCSS - Mobile First Styles
+
+I have also made same-looking project written in React. Here is a link to the repo https://github.com/navasti/posts-comments-react
